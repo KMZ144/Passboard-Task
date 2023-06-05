@@ -29,7 +29,7 @@ public class EmployeeService extends BaseService<Employee, Long> {
 		return empRepo.save(emp); 
 	}
 	
-	public void generateEmployeeCode(Employee employee) {
+	public void generateEmployeeCode(Employee emp) {
 	    Random random = new Random();
 	    int code;
 	    boolean uniqueCodeFound = false;
@@ -40,6 +40,6 @@ public class EmployeeService extends BaseService<Employee, Long> {
 	            uniqueCodeFound = true;
 	        }
 	    } while (!uniqueCodeFound);
-	    employee.setEmpCode(code);
+	    emp.setEmpCode(code);
 	}
 }
