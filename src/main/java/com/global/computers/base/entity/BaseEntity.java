@@ -20,6 +20,5 @@ public class BaseEntity <ID extends Number> {
 		this.id = id;
 	}
 	
-	
 
 }

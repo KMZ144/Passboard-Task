@@ -13,4 +13,6 @@ public interface ComputersRepo extends BaseRepo<Computer, Long> {
 	
 	List<Computer> findByEmpId(long empId);
 	
+	List<Computer> findByEmpCode(int empCode);
+	
 }

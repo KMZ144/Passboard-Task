@@ -8,6 +8,6 @@ import com.global.computers.entity.Employee;
 @Repository
 public interface EmployeeRepo extends BaseRepo<Employee, Long> {
 	
-	Employee findByEmpCode(int code);
+	Employee findByCode(int code);
 
 }

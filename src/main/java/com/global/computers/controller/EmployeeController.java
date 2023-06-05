@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
-import com.global.computers.entity.Computer;
 import com.global.computers.entity.Employee;
 import com.global.computers.service.ComputerService;
 import com.global.computers.service.EmployeeService;

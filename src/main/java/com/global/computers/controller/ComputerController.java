@@ -46,7 +46,11 @@ public class ComputerController {
 	
 	@PatchMapping("{compId}/employees/{empId}")
 	public ResponseEntity<?> addComputerToEmployee(@PathVariable long compId,@PathVariable long empId){
-		return ResponseEntity.ok(Map.of("data", computerService.addComputerToEmployee(compId, empId),"",""));
+		if (computerService.checkComputersAssignedToEmp(empId)) {
+			return ResponseEntity.ok(Map.of("data", computerService.addComputerToEmployee(compId, empId)
+					,"message","computers assigned to this employee excceds 3"));
+		}
+		return ResponseEntity.ok(computerService.addComputerToEmployee(compId, empId));
 	}
 	
 	@DeleteMapping("/{id}")

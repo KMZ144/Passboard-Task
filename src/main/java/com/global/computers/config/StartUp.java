@@ -10,7 +10,7 @@ import com.global.computers.service.ComputerService;
 import com.global.computers.service.EmployeeService;
 
 @Component
-public class Config implements  CommandLineRunner {
+public class StartUp implements  CommandLineRunner {
 
 	@Autowired
 	private ComputerService computerService;
@@ -24,12 +24,12 @@ public class Config implements  CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Employee emp = new Employee();
 		emp.setName("kareem");
-		emp.setEmpCode(3000);
+		emp.setCode(3000);
 		employeeService.insert(emp);
 		
 		Employee emp2 = new Employee();
 		emp2.setName("kareem");
-		emp2.setEmpCode(3001);
+		emp2.setCode(3001);
 		employeeService.insert(emp2);
 		
 		Computer comp1=new Computer();

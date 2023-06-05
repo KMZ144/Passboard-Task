@@ -11,16 +11,16 @@ public class Employee extends BaseEntity<Long> {
 	
 
 	@Column(unique = true)
-	private int empCode;
+	private int code;
 	
 	private String name;
 
-	public int getEmpCode() {
-		return empCode;
+	public int getCode() {
+		return  code;
 	}
 
-	public void setEmpCode(int empCode) {
-		this.empCode = empCode;
+	public void setCode(int code) {
+		this.code = code;
 	}
 
 	public String getName() {

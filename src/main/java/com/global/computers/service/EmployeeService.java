@@ -17,7 +17,7 @@ public class EmployeeService extends BaseService<Employee, Long> {
 	private EmployeeRepo empRepo;
 	
 	public Employee findByEmpCode(int code) {
-		Employee emp =  empRepo.findByEmpCode(code);
+		Employee emp =  empRepo.findByCode(code);
 		if (emp==null) throw new NoSuchElementException();
 		return emp;
 	}
@@ -35,11 +35,11 @@ public class EmployeeService extends BaseService<Employee, Long> {
 	    boolean uniqueCodeFound = false;
 	    do {
 	        code = random.nextInt(9000) + 1000; 
-	        Employee existingEmployee = empRepo.findByEmpCode(code);
+	        Employee existingEmployee = empRepo.findByCode(code);
 	        if (existingEmployee == null) {
 	            uniqueCodeFound = true;
 	        }
 	    } while (!uniqueCodeFound);
-	    emp.setEmpCode(code);
+	    emp.setCode(code);
 	}
 }

@@ -2,14 +2,18 @@ package com.global.computers.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.io.IOException;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import com.global.computers.base.service.BaseService;
 import com.global.computers.entity.Computer;
 import com.global.computers.entity.Employee;
 import com.global.computers.repo.ComputersRepo;
 
-import jakarta.persistence.EntityNotFoundException;
+import jakarta.validation.Valid;
+
 
 @Service
 public class ComputerService extends BaseService<Computer, Long> {
@@ -20,9 +24,21 @@ public class ComputerService extends BaseService<Computer, Long> {
 	@Autowired
 	private EmployeeService empService;
 
-
+	 
+	
 	public List<Computer> findComputersByEmpId(long empId) {
-		return computerRepo.findByEmpId(empId);
+		List<Computer> computers =  computerRepo.findByEmpId(empId);
+		if (computers==null) throw new NoSuchElementException("emp id is not found");
+		return computers;
+	}
+	
+	@Override
+	public Computer insert(Computer entity) {
+		Employee emp= entity.getEmp();		
+		if ((emp !=null && empService.findById(emp.getId()) != null)||emp==null) {
+			return computerRepo.save(entity);
+		}
+		throw new NoSuchElementException("emp id is not found");
 	}
 
 
@@ -45,5 +61,6 @@ public class ComputerService extends BaseService<Computer, Long> {
 		}
 		return false ;
 	}
+	
 
 }

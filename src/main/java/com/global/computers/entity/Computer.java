@@ -2,7 +2,6 @@ package com.global.computers.entity;
 
 import com.global.computers.base.entity.BaseEntity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
@@ -11,14 +10,14 @@ import jakarta.validation.constraints.NotNull;
 public class Computer extends BaseEntity<Long> {
 	
 	
-	@Column(unique = true)
-	@NotNull
+	
+	@NotNull(message = "mac address required")
 	private String macAddress;
 	
-	@NotNull
+	@NotNull(message = "ip address required")
 	private String ipAddress;
 	
-	@NotNull
+	@NotNull(message = "name is required")
 	private String name;
 	
 	@ManyToOne()
