@@ -5,5 +5,7 @@
 
 
 for a productive version of this app we can add 
-1- protection for routes with spring security
-2- we can add mapper and dtos for entities to retrive specific data fields and to achieve lazy fetch of data
+<ul>
+<li> protection for routes with spring security</li>
+<li> we can add mapper and dtos for entities to retrive specific data fields and to achieve lazy fetch of data</li>
+  </ul>
